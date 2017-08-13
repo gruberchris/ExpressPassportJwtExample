@@ -11,7 +11,7 @@ var params = {
 
 module.exports = function() {
     var strategy = new Strategy(params, function(payload, done) {
-        var user = users[payload.id] || null;
+        var user = users[payload.id - 1] || null;
         if (user) {
             return done(null, {
                 id: user.id

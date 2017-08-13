@@ -16,8 +16,9 @@ app.get("/", function(req, res) {
 });
 
 app.get("/user", auth.authenticate(), function(req, res) {
-    console.log(JSON.stringify(users));
-    res.json(users[req.user.id]);
+    console.log(req.user.id);
+    console.log(JSON.stringify(users[req.user.id - 1]));
+    res.json(users[req.user.id - 1]);
 });
 
 app.post("/token", function(req, res) {
